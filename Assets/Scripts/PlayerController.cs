@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 50.0f;
 
+    public bool canMove = false;
+
     public Vector3 angleVelocity = new Vector3(0, 16f, 0);
 
     Rigidbody playerRigidbody;
@@ -44,6 +46,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!canMove)
+        {
+            return;
+        }
+
         if (hInput != 0)
         {
             Vector3 rotSpeed = vInput != 0 ? angleVelocity * 1.5f : angleVelocity;

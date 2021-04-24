@@ -39,6 +39,7 @@ public class TextPanelController : MonoBehaviour
     {
         if (completed)
         {
+            GameManager.Instance.ToggleMovement();
             Destroy(gameObject);
         }
         else
