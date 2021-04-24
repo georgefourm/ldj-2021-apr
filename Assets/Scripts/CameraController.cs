@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-    public float followSharpness = 0.1f;
+    public float followSharpness = 0.02f;
 
     public Transform player;
 

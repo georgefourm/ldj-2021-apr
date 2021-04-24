@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public bool canMove = false;
 
-    public Vector3 angleVelocity = new Vector3(0, 16f, 0);
+    public Vector3 angleVelocity = new Vector3(0, 80f, 0);
 
     Rigidbody playerRigidbody;
 
