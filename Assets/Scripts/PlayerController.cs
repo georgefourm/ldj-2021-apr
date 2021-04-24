@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 angleVelocity = new Vector3(0, 80f, 0);
 
+    public ParticleSystem exhaust;
+
     Rigidbody playerRigidbody;
 
     private float hInput;
@@ -27,21 +29,15 @@ public class PlayerController : MonoBehaviour
         hInput = Input.GetAxis("Horizontal");
         vInput = Input.GetAxis("Vertical");
 
-        /*
-        if (vInput != 0) {
-            Vector3 direction = new Vector3(hInput, 0, vInput);
-            Debug.Log(direction.normalized);
-            rigidbody.AddForce(direction.normalized * speed);
-        } else if (hInput != 0) {
-            Vector3 direction = new Vector3(hInput, 0, 0); // replace it with the directional constant
-            Debug.Log(direction.normalized);
-            rigidbody.AddForce(direction * speed * 0.4f);
+        var main = exhaust.main;
+        if (vInput > 0)
+        {
+            main.startLifetime = 1.5f;
         }
-        */
-
-        Vector3 direction = vInput * Vector3.forward;
-
-
+        else
+        {
+            main.startLifetime = 0.5f;
+        }
     }
 
     private void FixedUpdate()
@@ -64,10 +60,5 @@ public class PlayerController : MonoBehaviour
             float fwdSpeed = vInput > 0 ? speed * 1.5f : speed;
             playerRigidbody.AddForce(Mathf.Sign(vInput) * transform.forward * fwdSpeed);
         }
-    }
-
-    public void FuelCube()
-    {
-        Debug.Log("Fuel!!!");
     }
 }
