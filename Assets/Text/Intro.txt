@@ -1,0 +1,3 @@
+Welcome Cadet.
+You are now in space, the final frontier. Your mission is to collect all the fuel that our last mission left all around this asteroid cluster.
+You must venture all the way into the cluster to collect it, make sure you come back alive!
