@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    float speed = 50.0f;
+    public float speed = 50.0f;
 
-    Vector3 angleVelocity = new Vector3(0, 16f, 0);
+    public Vector3 angleVelocity = new Vector3(0, 16f, 0);
 
-    Rigidbody rigidbody;
+    Rigidbody playerRigidbody;
+
+    private float hInput;
+    private float vInput;
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        playerRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float hInput = Input.GetAxis("Horizontal");
-        float vInput = Input.GetAxis("Vertical");
+        hInput = Input.GetAxis("Horizontal");
+        vInput = Input.GetAxis("Vertical");
 
         /*
         if (vInput != 0) {
@@ -41,20 +44,18 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float hInput = Input.GetAxis("Horizontal");
-        float vInput = Input.GetAxis("Vertical");
-
         if (hInput != 0)
         {
             Vector3 rotSpeed = vInput != 0 ? angleVelocity * 1.5f : angleVelocity;
             Quaternion deltaRotation = Quaternion.Euler(angleVelocity * Time.fixedDeltaTime * Mathf.Sign(hInput));
-            rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
+            //playerRigidbody.MoveRotation(playerRigidbody.rotation * deltaRotation);
+            playerRigidbody.rotation = playerRigidbody.rotation * deltaRotation;
         }
 
         if (vInput != 0)
         {
             float fwdSpeed = vInput > 0 ? speed * 1.5f : speed;
-            rigidbody.AddForce(Mathf.Sign(vInput) * transform.forward * fwdSpeed);
+            playerRigidbody.AddForce(Mathf.Sign(vInput) * transform.forward * fwdSpeed);
         }
     }
 
