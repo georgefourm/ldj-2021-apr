@@ -344,6 +344,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7623365624318324031, guid: 393863c9b49a4b54fb8a88f0b91d19cc, type: 3}
+      propertyPath: exhaust
+      value: 
+      objectReference: {fileID: 1148274718}
+    - target: {fileID: 7623365624318324031, guid: 393863c9b49a4b54fb8a88f0b91d19cc, type: 3}
       propertyPath: angleVelocity.y
       value: 80
       objectReference: {fileID: 0}
@@ -464,6 +468,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6bff1f9755b7347900632ff686af57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!198 &1148274718 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3635609380600107435, guid: 393863c9b49a4b54fb8a88f0b91d19cc, type: 3}
+  m_PrefabInstance: {fileID: 916376496}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1199550049
 GameObject:
   m_ObjectHideFlags: 0
