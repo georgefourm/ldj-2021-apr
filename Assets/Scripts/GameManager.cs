@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public UIManager ui;
     public static GameManager Instance { get; private set; }
 
+    public FuelManager fuel;
+
     int resourcesCollected = 0;
 
     private void Awake()
@@ -29,9 +31,9 @@ public class GameManager : MonoBehaviour
         resourcesCollected++;
     }
 
-    public void ToggleMovement()
+    public void StartLevel()
     {
-        player.canMove = !player.canMove;
+        player.canMove = true;
+        fuel.ToggleConsumption();
     }
-
 }

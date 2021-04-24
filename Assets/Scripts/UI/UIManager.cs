@@ -18,8 +18,8 @@ public class UIManager : MonoBehaviour
         healthBar.Reduce(amount);
     }
 
-    public void SpendFuel(int amount)
+    public void SetFuel(float amount)
     {
-        fuelBar.Reduce(amount);
+        fuelBar.SetAmount(Mathf.CeilToInt(amount));
     }
 }

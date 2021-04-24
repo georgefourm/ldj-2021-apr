@@ -33,10 +33,12 @@ public class PlayerController : MonoBehaviour
         if (vInput > 0)
         {
             main.startLifetime = 1.5f;
+            GameManager.Instance.fuel.ToggleHighBurnRate();
         }
         else
         {
             main.startLifetime = 0.5f;
+            GameManager.Instance.fuel.ToggleLowBurnRate();
         }
     }
 
@@ -51,7 +53,6 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 rotSpeed = vInput != 0 ? angleVelocity * 1.5f : angleVelocity;
             Quaternion deltaRotation = Quaternion.Euler(angleVelocity * Time.fixedDeltaTime * Mathf.Sign(hInput));
-            //playerRigidbody.MoveRotation(playerRigidbody.rotation * deltaRotation);
             playerRigidbody.rotation = playerRigidbody.rotation * deltaRotation;
         }
 

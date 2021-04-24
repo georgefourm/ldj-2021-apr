@@ -484,6 +484,7 @@ GameObject:
   - component: {fileID: 1199550050}
   - component: {fileID: 1199550051}
   - component: {fileID: 1199550052}
+  - component: {fileID: 1199550053}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -519,6 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2101817075}
   ui: {fileID: 1459175045}
+  fuel: {fileID: 1199550053}
 --- !u!114 &1199550052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,6 +537,18 @@ MonoBehaviour:
   ResourcePrefab: {fileID: 1029284570325849784, guid: 7b347e41ece30f24ebef156897a3d8a3, type: 3}
   lowerLeftBound: {x: -50, y: -50}
   upperRightBound: {x: 50, y: 50}
+--- !u!114 &1199550053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199550049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d40ac5b349aaba4eb69d8dd8b298038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1459175040
 GameObject:
   m_ObjectHideFlags: 0

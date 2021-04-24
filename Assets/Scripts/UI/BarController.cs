@@ -22,7 +22,18 @@ public class BarController : MonoBehaviour
     public void Reduce(int amount)
     {
         currValue = Mathf.Max(currValue - amount, 0);
-        barFill.fillAmount = currValue / MaxValue;
+        UpdateUi();
+    }
+
+    public void SetAmount(int amount)
+    {
+        currValue = amount;
+        UpdateUi();
+    }
+
+    protected void UpdateUi()
+    {
+        barFill.fillAmount = (float) currValue / MaxValue;
         barText.text = currValue.ToString();
     }
 }
