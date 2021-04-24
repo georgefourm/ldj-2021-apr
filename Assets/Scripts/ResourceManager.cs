@@ -10,7 +10,6 @@ public class ResourceManager : MonoBehaviour
 
     public Vector2 lowerLeftBound, upperRightBound;
 
-    // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < Amount; i++)
@@ -20,12 +19,7 @@ public class ResourceManager : MonoBehaviour
             var z = Random.Range(lowerLeftBound.y, upperRightBound.y);
 
             resource.transform.position = new Vector3(x, 0, z);
+            resource.transform.eulerAngles += new Vector3(0, 0, Random.Range(0, 360));
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
