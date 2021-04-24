@@ -10,7 +10,6 @@ public class ResourceManager : MonoBehaviour
 
     public Vector2 lowerLeftBound, upperRightBound;
 
-    // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < Amount; i++)
@@ -21,11 +20,5 @@ public class ResourceManager : MonoBehaviour
 
             resource.transform.position = new Vector3(x, 0, z);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
