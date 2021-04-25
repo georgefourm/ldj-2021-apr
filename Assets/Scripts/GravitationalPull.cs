@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GravitationalPull : MonoBehaviour
 {
-    public float scale = 1f;
+    public float multiplier = 1f;
 
     private SphereCollider sphereCollider;
 
@@ -22,12 +22,12 @@ public class GravitationalPull : MonoBehaviour
 
     void OnTriggerStay(Collider collider)
     {
-        //Vector3 distance = Vector3.Distance();
-        var direction = -(collider.attachedRigidbody.transform.position - transform.position);
+        var distanceFromCenter = Vector3.Distance(collider.attachedRigidbody.transform.position, transform.position);
+        var direction = -(collider.attachedRigidbody.transform.position - transform.position).normalized;
         if (collider.attachedRigidbody)
         {
-            var mod = 1 / Mathf.Pow(direction.magnitude, 2);
-            var force = direction * mod * scale;
+            var mod = distanceFromCenter == 0 ? 0 : sphereCollider.radius / distanceFromCenter;
+            var force = direction * mod * multiplier;
             collider.attachedRigidbody.AddForce(force);
         }
     }
