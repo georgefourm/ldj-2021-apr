@@ -13,7 +13,6 @@ public class BarController : MonoBehaviour
 
     int currValue;
 
-    // Start is called before the first frame update
     void Start()
     {
         barText.text = MaxValue.ToString();

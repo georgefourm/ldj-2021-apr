@@ -17,6 +17,13 @@ public class PlayerController : MonoBehaviour
     private float hInput;
     private float vInput;
 
+    public void Reset()
+    {
+        canMove = false;
+        transform.position = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
