@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FuelManager : MonoBehaviour
 {
-    public float maxFuel = 100;
+    public float totalFuel = 100;
 
     float remainingFuel = 100;
 
@@ -14,16 +14,27 @@ public class FuelManager : MonoBehaviour
 
     public float lowBurnRate = 0.3f;
 
+    private IEnumerator coroutine;
+
     public void Reset()
     {
-        remainingFuel = maxFuel;
+        remainingFuel = totalFuel;
         fuelBurnRate = lowBurnRate;
         GameManager.Instance.ui.SetFuel(remainingFuel);
     }
 
-    public void ToggleConsumption()
+    public void StartConsumption()
     {
-        StartCoroutine(consumeFuel());
+        coroutine = consumeFuel();
+        StartCoroutine(coroutine);
+    }
+
+    public void StopConsumption()
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
     }
 
     public void ToggleHighBurnRate()
@@ -50,7 +61,7 @@ public class FuelManager : MonoBehaviour
     {
         while (remainingFuel > 0)
         {
-            remainingFuel -= fuelBurnRate;
+            remainingFuel = Mathf.Max(0,remainingFuel - fuelBurnRate);
             GameManager.Instance.ui.SetFuel(remainingFuel);
             yield return new WaitForSeconds(1.0f);
         }

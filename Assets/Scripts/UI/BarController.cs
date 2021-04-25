@@ -13,9 +13,10 @@ public class BarController : MonoBehaviour
 
     int currValue;
 
-    void Start()
+    public void Reset()
     {
-        barText.text = MaxValue.ToString();
+        currValue = MaxValue;
+        UpdateUi();
     }
 
     public void Reduce(int amount)

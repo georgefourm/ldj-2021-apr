@@ -21,6 +21,12 @@ public class UIManager : MonoBehaviour
         resources.ResetCounter();
     }
 
+    public void InitHealth(int amount)
+    {
+        healthBar.MaxValue = amount;
+        healthBar.SetAmount(amount);
+    }
+
     public void AddResource()
     {
         resources.Increment();
@@ -51,5 +57,14 @@ public class UIManager : MonoBehaviour
     public void HideGameOver()
     {
         gameOverPanel.SetActive(false);
+    }
+
+    public void Reset()
+    {
+        HideGameOver();
+        resources.ResetCounter();
+        healthBar.Reset();
+        fuelBar.Reset();
+        text.StartText();
     }
 }

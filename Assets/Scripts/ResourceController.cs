@@ -10,7 +10,6 @@ public class ResourceController : MonoBehaviour
         {
             return;
         }
-        GameManager.Instance.resources.CollectResource();
-        gameObject.SetActive(false);
+        GameManager.Instance.resources.CollectResource(gameObject);
     }
 }
