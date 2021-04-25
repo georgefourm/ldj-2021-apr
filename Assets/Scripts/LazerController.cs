@@ -19,12 +19,12 @@ public class LazerController : MonoBehaviour
     void Update()
     {
         lifetime -= Time.deltaTime;
-        if (lifetime <= 0) Destroy(gameObject);
+        if (lifetime <= 0) GameManager.Instance.pooler.DestroyPooled("projectiles", gameObject); ;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         GameManager.Instance.health.Damage(damage);
-        Destroy(gameObject);
+        GameManager.Instance.pooler.DestroyPooled("projectiles", gameObject);
     }
 }

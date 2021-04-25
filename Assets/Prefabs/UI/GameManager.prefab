@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1138085196887435071}
   - component: {fileID: 1138085196887435070}
   - component: {fileID: 2063746466531098423}
+  - component: {fileID: 3071059671516175697}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,7 +50,9 @@ MonoBehaviour:
   player: {fileID: 0}
   ui: {fileID: 0}
   fuel: {fileID: 1138085196887435070}
+  health: {fileID: 0}
   resources: {fileID: 0}
+  pooler: {fileID: 0}
 --- !u!114 &1138085196887435071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourcePrefab: {fileID: 1029284570325849784, guid: 7b347e41ece30f24ebef156897a3d8a3, type: 3}
-  resourcesRequired: 15
+  totalResources: 15
 --- !u!114 &1138085196887435070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d40ac5b349aaba4eb69d8dd8b298038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFuel: 100
+  totalFuel: 100
   highBurnRate: 1.3
   lowBurnRate: 0.3
 --- !u!114 &2063746466531098423
@@ -91,3 +94,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9557a2ce2e996bb4fabd55b264259d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalHealth: 100
+--- !u!114 &3071059671516175697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138085196887435066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2cbdfc237137c4a9dd28fd13a13d92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PoolSizeDefault: 50

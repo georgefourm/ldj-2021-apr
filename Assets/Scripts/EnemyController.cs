@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
             {
                 if (shootingTimer < 0)
                 {
-                    GameObject lazerObject = Instantiate(lazerPrefab);
+                    GameObject lazerObject = GameManager.Instance.pooler.InstantiatePooled("projectiles",lazerPrefab);
                     lazerObject.transform.position = transform.position + transform.forward * 4;
                     lazerObject.transform.rotation = rotation;
                     //lazerObject.transform.rotation = Quaternion.Euler(lazerObject.transform.rotation.x, lazerObject.transform.rotation.y, lazerObject.transform.rotation.z + 90);

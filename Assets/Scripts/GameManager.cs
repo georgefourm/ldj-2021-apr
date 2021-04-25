@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     GameObject goal;
 
+    public GameObjectPooler pooler;
+
     private void Awake()
     {
         if (Instance == null)
@@ -37,6 +39,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        pooler = GetComponent<GameObjectPooler>();
+        pooler.CreatePool("resources");
+        pooler.CreatePool("projectiles");
+
         goal = GameObject.FindGameObjectWithTag("Finish");
         goal.SetActive(false);
 

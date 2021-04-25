@@ -31,7 +31,10 @@ public class FuelManager : MonoBehaviour
 
     public void StopConsumption()
     {
-        StopCoroutine(coroutine);
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
     }
 
     public void ToggleHighBurnRate()

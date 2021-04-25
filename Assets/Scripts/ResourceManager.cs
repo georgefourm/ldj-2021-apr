@@ -11,12 +11,32 @@ public class ResourceManager : MonoBehaviour
 
     private int currResources = 0;
 
-    public void Reset()
+    private List<ResourceArea> areas;
+
+    private List<GameObject> resources = new List<GameObject>();
+
+    private void Start()
     {
-        currResources = 0;    
+        GameObject[] areaObjects = GameObject.FindGameObjectsWithTag("ResourceArea");
+        areas = new List<ResourceArea>(areaObjects.Length);
+        foreach (GameObject area in areaObjects)
+        {
+            areas.Add(area.GetComponent<ResourceArea>());
+        }
     }
 
-    public void CollectResource()
+    public void Reset()
+    {
+        currResources = 0;
+        foreach (var resource in resources)
+        {
+            GameManager.Instance.pooler.DestroyPooled("resources", resource);
+        }
+        resources.Clear();
+        PopulateResourceAreas();
+    }
+
+    public void CollectResource(GameObject resource)
     {
         if (currResources == totalResources)
         {
@@ -24,7 +44,10 @@ public class ResourceManager : MonoBehaviour
         }
         
         currResources++;
+        resources.Remove(resource);
+
         GameManager.Instance.ui.AddResource();
+        GameManager.Instance.pooler.DestroyPooled("resources", resource);
 
         if (currResources == totalResources)
         {
@@ -34,10 +57,8 @@ public class ResourceManager : MonoBehaviour
 
     public void PopulateResourceAreas()
     {
-        GameObject[] areas = GameObject.FindGameObjectsWithTag("ResourceArea");
-        foreach (GameObject area in areas)
+        foreach (ResourceArea resourceArea in areas)
         {
-            ResourceArea resourceArea = area.GetComponent<ResourceArea>();
             for (int i=0; i<resourceArea.minResources; i++)
             {
                 Rect bb = resourceArea.GetBoundingBox();
@@ -50,8 +71,9 @@ public class ResourceManager : MonoBehaviour
 
     private void GenerateResource(float x, float z)
     {
-        var resource = Instantiate(resourcePrefab, transform);
+        var resource = GameManager.Instance.pooler.InstantiatePooled("resources",resourcePrefab);
         resource.transform.position = new Vector3(x, 0, z);
         resource.transform.eulerAngles += new Vector3(0, 0, Random.Range(0, 360));
+        resources.Add(resource);
     }
 }
