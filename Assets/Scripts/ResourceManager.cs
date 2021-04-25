@@ -7,26 +7,26 @@ public class ResourceManager : MonoBehaviour
 
     public GameObject resourcePrefab;
 
-    public int resourcesRequired = 15;
+    public int totalResources = 15;
 
-    private int resourcesCollected = 0;
+    private int currResources = 0;
 
     public void Reset()
     {
-        resourcesCollected = 0;    
+        currResources = 0;    
     }
 
     public void CollectResource()
     {
-        if (resourcesCollected == resourcesRequired)
+        if (currResources == totalResources)
         {
             return;
         }
         
-        resourcesCollected++;
+        currResources++;
         GameManager.Instance.ui.AddResource();
 
-        if (resourcesCollected == resourcesRequired)
+        if (currResources == totalResources)
         {
             GameManager.Instance.SetResourcesCompleted();
         }

@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public FuelManager fuel;
 
     [HideInInspector]
+    public HealthManager health;
+
+    [HideInInspector]
     public ResourceManager resources;
 
     GameObject goal;
@@ -41,31 +44,33 @@ public class GameManager : MonoBehaviour
         ui = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 
         fuel = GetComponent<FuelManager>();
-        ui.InitFuel(fuel.maxFuel);
+        ui.InitFuel(fuel.totalFuel);
 
         resources = GetComponent<ResourceManager>();
-        ui.InitResources(resources.resourcesRequired);
-        
+        ui.InitResources(resources.totalResources);
+
+        health = GetComponent<HealthManager>();
+        ui.InitHealth(health.totalHealth);
+
         RestartLevel();
     }
 
     public void RestartLevel()
     {
-        ui.HideGameOver();
         player.Reset();
         fuel.Reset();
-        
         resources.Reset();
-        ui.resources.ResetCounter();
+        health.Reset();
 
-        ui.text.StartText();
+        ui.Reset();
+        
         goal.SetActive(false);
     }
 
     public void StartLevel()
     {
         player.canMove = true;
-        fuel.ToggleConsumption();
+        fuel.StartConsumption();
         resources.PopulateResourceAreas();
     }
 
@@ -83,6 +88,7 @@ public class GameManager : MonoBehaviour
     public void SetHealthDepleted()
     {
         player.canMove = false;
+        fuel.StopConsumption();
         ui.ShowGameOver("You were killed");
     }
 
