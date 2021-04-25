@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        playerRigidbody.angularVelocity = Vector3.zero;
+
         if (!canMove)
         {
             return;

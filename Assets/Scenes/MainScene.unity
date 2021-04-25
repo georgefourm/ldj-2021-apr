@@ -275,6 +275,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7623365624318324030, guid: 393863c9b49a4b54fb8a88f0b91d19cc, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7623365624318324031, guid: 393863c9b49a4b54fb8a88f0b91d19cc, type: 3}
       propertyPath: canMove
       value: 0
@@ -486,7 +490,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1148274718 stripped
 ParticleSystem:
@@ -517,7 +521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 887415197080924592, guid: a0bb4c1da8742764abd26638857e9b6b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 60
+      value: 21.1
       objectReference: {fileID: 0}
     - target: {fileID: 887415197080924592, guid: a0bb4c1da8742764abd26638857e9b6b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -525,7 +529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 887415197080924592, guid: a0bb4c1da8742764abd26638857e9b6b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 60
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 887415197080924592, guid: a0bb4c1da8742764abd26638857e9b6b, type: 3}
       propertyPath: m_LocalRotation.w

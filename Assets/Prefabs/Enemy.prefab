@@ -61,7 +61,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.16
+  m_Radius: 2.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &887415197080924593
 MonoBehaviour:
@@ -75,7 +75,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac620199cbf8d2c45a0a67aaef3b2774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lazerPrefab: {fileID: 6832712512337421307, guid: d2225fdcfc982de4a82c9ac2b9fd83fe, type: 3}
   speed: 10
+  minFollowDistance: 50
+  maxFollowDistance: 100
+  shootingTimeInterval: 1
 --- !u!1001 &887415198465691567
 PrefabInstance:
   m_ObjectHideFlags: 0
