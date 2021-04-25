@@ -13,13 +13,7 @@ public class ResourceCounterController : MonoBehaviour
 
     int currAmount = 0;
 
-
-    void Start()
-    {
-        ResetCounter();
-    }
-
-    protected void UpdateText()
+    public void UpdateText()
     {
         counterText.text = currAmount + separator + maxAmount;
     }

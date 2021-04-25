@@ -4,13 +4,35 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
- //   public int Amount = 20;
 
-    public GameObject ResourcePrefab;
+    public GameObject resourcePrefab;
 
-    public Vector2 lowerLeftBound, upperRightBound;
+    public int resourcesRequired = 15;
 
-    void Start()
+    private int resourcesCollected = 0;
+
+    public void Reset()
+    {
+        resourcesCollected = 0;    
+    }
+
+    public void CollectResource()
+    {
+        if (resourcesCollected == resourcesRequired)
+        {
+            return;
+        }
+        
+        resourcesCollected++;
+        GameManager.Instance.ui.AddResource();
+
+        if (resourcesCollected == resourcesRequired)
+        {
+            GameManager.Instance.SetResourcesCompleted();
+        }
+    }
+
+    public void PopulateResourceAreas()
     {
         GameObject[] areas = GameObject.FindGameObjectsWithTag("ResourceArea");
         foreach (GameObject area in areas)
@@ -28,7 +50,7 @@ public class ResourceManager : MonoBehaviour
 
     private void GenerateResource(float x, float z)
     {
-        var resource = Instantiate(ResourcePrefab, transform);
+        var resource = Instantiate(resourcePrefab, transform);
         resource.transform.position = new Vector3(x, 0, z);
         resource.transform.eulerAngles += new Vector3(0, 0, Random.Range(0, 360));
     }

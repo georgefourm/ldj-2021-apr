@@ -9,7 +9,7 @@ public class TextPanelController : MonoBehaviour
 
     public TextAsset textAsset;
 
-    public float Speed = 20;
+    public float CharsPerSec = 20;
 
     string text;
 
@@ -17,9 +17,15 @@ public class TextPanelController : MonoBehaviour
 
     IEnumerator coroutine;
 
-    private void Start()
+    private void Awake()
     {
         text = textAsset.text;
+    }
+
+    public void StartText()
+    {
+        gameObject.SetActive(true);
+        gameObject.SetActive(true);
         coroutine = writeText();
         StartCoroutine(coroutine);
     }
@@ -30,7 +36,7 @@ public class TextPanelController : MonoBehaviour
         {
             textRef.text = text.Substring(0, i);
 
-            yield return new WaitForSeconds(1/Speed);
+            yield return new WaitForSeconds(1/CharsPerSec);
         }
         completed = true;
     }
@@ -40,7 +46,8 @@ public class TextPanelController : MonoBehaviour
         if (completed)
         {
             GameManager.Instance.StartLevel();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            completed = false;
         }
         else
         {
