@@ -1,3 +1,4 @@
-Welcome Cadet.
-You are now in space, the final frontier. Your mission is to collect all the fuel that our last mission left all around this asteroid cluster.
-You must venture all the way into the cluster to collect it, make sure you come back alive!
+Welcome Cadet
+You are now approaching the Zelaeus asteroid belt. Your mission is to venture into the center of the cluster, and collect all 
+mineral resources that are scattered throughout its areas. Dangerous working conditions have never stopped capitalism before. 
+After you collect all resources in an area, enter the warp zone to go deeper into the cluster.

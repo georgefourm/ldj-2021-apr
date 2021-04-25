@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public ResourceManager resources;
 
+    GameObject goal;
+
     private void Awake()
     {
         if (Instance == null)
@@ -32,6 +34,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        goal = GameObject.FindGameObjectWithTag("Finish");
+        goal.SetActive(false);
+
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         ui = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 
@@ -54,6 +59,7 @@ public class GameManager : MonoBehaviour
         ui.resources.ResetCounter();
 
         ui.text.StartText();
+        goal.SetActive(false);
     }
 
     public void StartLevel()
@@ -65,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void SetResourcesCompleted()
     {
-
+        goal.SetActive(true);
     }
 
     public void SetFuelDepleted()
@@ -82,12 +88,12 @@ public class GameManager : MonoBehaviour
 
     public void CompleteLevel()
     {
-
+        LevelManager.Instance.NextLevel();
     }
 
     public void Quit()
     {
-
+        LevelManager.Instance.QuitToMenu();
     }
 
 
