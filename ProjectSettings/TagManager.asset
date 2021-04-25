@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ResourceArea
   - UIManager
+  - Invisible
   layers:
   - Default
   - TransparentFX

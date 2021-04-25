@@ -22,6 +22,6 @@ public class LazerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (!other.gameObject.tag.Equals("Invisible")) Destroy(gameObject);
     }
 }
