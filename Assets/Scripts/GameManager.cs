@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         ui.InitFuel(fuel.totalFuel);
 
         resources = GetComponent<ResourceManager>();
-        ui.InitResources(resources.totalResources);
+        ui.InitResources(resources.GetTotalResouces());
 
         health = GetComponent<HealthManager>();
         ui.InitHealth(health.totalHealth);

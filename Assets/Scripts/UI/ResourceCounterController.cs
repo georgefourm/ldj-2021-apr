@@ -9,7 +9,7 @@ public class ResourceCounterController : MonoBehaviour
 
     public string separator = "/";
 
-    public int maxAmount = 20;
+    public int maxAmount = 0;
 
     int currAmount = 0;
 

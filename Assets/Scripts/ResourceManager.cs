@@ -7,7 +7,7 @@ public class ResourceManager : MonoBehaviour
 
     public GameObject resourcePrefab;
 
-    public int totalResources = 15;
+    private int totalResources = 0;
 
     private int currResources = 0;
 
@@ -22,6 +22,10 @@ public class ResourceManager : MonoBehaviour
         foreach (GameObject area in areaObjects)
         {
             areas.Add(area.GetComponent<ResourceArea>());
+        }
+        foreach (var area in areas)
+        {
+            totalResources += (int) area.minResources;
         }
     }
 
@@ -65,6 +69,7 @@ public class ResourceManager : MonoBehaviour
                 var x = Random.Range(bb.x, bb.x + bb.width);
                 var z = Random.Range(bb.y, bb.y + bb.height);
                 GenerateResource(x, z);
+                totalResources++;
             }
         }
     }
@@ -75,5 +80,10 @@ public class ResourceManager : MonoBehaviour
         Vector3 rotation = resourcePrefab.transform.eulerAngles + new Vector3(0, 0, Random.Range(0, 360));
         var resource = GameManager.Instance.pooler.InstantiatePooled("resources",resourcePrefab,position,Quaternion.Euler(rotation));
         resources.Add(resource);
+    }
+
+    public int GetTotalResouces()
+    {
+        return totalResources;
     }
 }
