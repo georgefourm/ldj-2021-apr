@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
     private Transform playerTransform;
     private Rigidbody enemyRigidbody;
     private float shootingTimer;
-    private Vector3 initPosition;
+    private Vector3? initPosition = null;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +57,9 @@ public class EnemyController : MonoBehaviour
 
     public void Reset()
     {
-        transform.position = initPosition;
+        if (initPosition != null)
+            transform.position = (Vector3) initPosition;
     }
+
+
 }
