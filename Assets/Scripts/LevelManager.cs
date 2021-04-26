@@ -25,7 +25,8 @@ public class LevelManager : MonoBehaviour
     public void NextLevel()
     {
         currLevel++;
-        SceneManager.LoadScene(currLevel);
+        if (currLevel > 3) Application.Quit();
+        SceneManager.LoadScene("Level" + currLevel);
     }
 
     public void QuitToMenu()

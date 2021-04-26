@@ -576,6 +576,10 @@ PrefabInstance:
       propertyPath: angleVelocity.y
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 7906585683376677212, guid: 393863c9b49a4b54fb8a88f0b91d19cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 393863c9b49a4b54fb8a88f0b91d19cc, type: 3}
 --- !u!1001 &923437590
