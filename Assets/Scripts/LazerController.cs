@@ -7,7 +7,7 @@ public class LazerController : MonoBehaviour
     public float speed = 15f;
     public float lifetime = 5f;
 
-    public int damage = 2;
+    public int damage = 10;
 
     // Start is called before the first frame update
     void Start()
