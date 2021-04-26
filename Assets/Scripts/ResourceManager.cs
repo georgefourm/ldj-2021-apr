@@ -37,7 +37,6 @@ public class ResourceManager : MonoBehaviour
             GameManager.Instance.pooler.DestroyPooled("resources", resource);
         }
         resources.Clear();
-        PopulateResourceAreas();
     }
 
     public void CollectResource(GameObject resource)
