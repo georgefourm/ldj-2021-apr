@@ -71,9 +71,9 @@ public class ResourceManager : MonoBehaviour
 
     private void GenerateResource(float x, float z)
     {
-        var resource = GameManager.Instance.pooler.InstantiatePooled("resources",resourcePrefab);
-        resource.transform.position = new Vector3(x, 0, z);
-        resource.transform.eulerAngles += new Vector3(0, 0, Random.Range(0, 360));
+        Vector3 position = new Vector3(x, 0, z); ;
+        Vector3 rotation = resourcePrefab.transform.eulerAngles + new Vector3(0, 0, Random.Range(0, 360));
+        var resource = GameManager.Instance.pooler.InstantiatePooled("resources",resourcePrefab,position,Quaternion.Euler(rotation));
         resources.Add(resource);
     }
 }

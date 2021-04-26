@@ -16,7 +16,7 @@ public class GameObjectPooler : MonoBehaviour
         }
     }
 
-    public GameObject InstantiatePooled(string poolName, GameObject prototype)
+    public GameObject InstantiatePooled(string poolName, GameObject prototype, Vector3 position, Quaternion rotation)
     {
         if (!pools.ContainsKey(poolName))
         {
@@ -28,11 +28,13 @@ public class GameObjectPooler : MonoBehaviour
         if (pool.Count > 0)
         {
             var item = pool.Pop();
+            item.transform.position = position;
+            item.transform.rotation = rotation;
             item.SetActive(true);
             return item;
         }
 
-        return Instantiate(prototype);
+        return Instantiate(prototype,position,rotation);
     }
 
     public void DestroyPooled(string poolName, GameObject item)

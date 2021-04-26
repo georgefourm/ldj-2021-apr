@@ -5,13 +5,15 @@ using UnityEngine;
 public class LazerController : MonoBehaviour
 {
     public float speed = 15f;
-    public float lifetime = 5f;
+    public float maxLifetime = 5f;
+    
+    float lifetime = 5f;
 
     public int damage = 2;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Fire()
     {
+        lifetime = maxLifetime;
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
     }
 

@@ -39,22 +39,14 @@ public class EnemyController : MonoBehaviour
         else
         {
             enemyRigidbody.velocity = Vector3.zero;
-            if (directionToPlayer.magnitude <= minFollowDistance)
+            if (directionToPlayer.magnitude <= minFollowDistance && shootingTimer < 0)
             {
-                if (shootingTimer < 0)
-                {
-                    GameObject lazerObject = GameManager.Instance.pooler.InstantiatePooled("projectiles",lazerPrefab);
-                    lazerObject.transform.position = transform.position + transform.forward * 4;
-                    lazerObject.transform.rotation = rotation;
-                    //lazerObject.transform.rotation = Quaternion.Euler(lazerObject.transform.rotation.x, lazerObject.transform.rotation.y, lazerObject.transform.rotation.z + 90);
-                    //Quaternion lazerRotation = Quaternion.LookRotation(lazerObject.transform.forward, Vector3.up);
-
-                    //
-                    Debug.Log(lazerObject.transform.forward);
-
-                    //Quaternion lazerRotation = Quaternion.LookRotation(lazerObject.transform.forward, Vector3.up);
-                    //lazerObject.transform.rotation = Quaternion.Euler(lazerRotation.x, lazerRotation.y, lazerRotation.z);
-                }
+                Vector3 position = transform.position + transform.forward * 4; 
+                GameObject lazerObject = GameManager.Instance.pooler.InstantiatePooled(
+                  "projectiles",lazerPrefab, position, rotation
+                );
+             
+              lazerObject.GetComponent<LazerController>().Fire();
             }
         }
 
