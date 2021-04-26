@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
     public void SetFuelDepleted()
     {
         player.canMove = false;
-        ui.ShowGameOver("Fuel Depleted");
+        ui.ShowGameOver("Fuel depleted");
     }
 
     public void SetHealthDepleted()
@@ -96,6 +96,13 @@ public class GameManager : MonoBehaviour
         player.canMove = false;
         fuel.StopConsumption();
         ui.ShowGameOver("You were killed");
+    }
+
+    public void BlackHoleGameOver()
+    {
+        player.canMove = false;
+        fuel.StopConsumption();
+        ui.ShowGameOver("You were pulled into a black hole");
     }
 
     public void CompleteLevel()
