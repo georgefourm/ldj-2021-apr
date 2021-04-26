@@ -42,8 +42,8 @@ public class EnemyController : MonoBehaviour
             if (directionToPlayer.magnitude <= minFollowDistance && shootingTimer < 0)
             {
                 Vector3 position = transform.position + transform.forward * 4; 
-                GameObject lazerObject = GameManager.Instance.pooler.InstantiatePooled(
-                  "projectiles",lazerPrefab, position, rotation
+                GameObject lazerObject = Instantiate(
+                  lazerPrefab, position, rotation
                 );
              
               lazerObject.GetComponent<LazerController>().Fire();
