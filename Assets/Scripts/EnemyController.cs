@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     private Transform playerTransform;
     private Rigidbody enemyRigidbody;
     private float shootingTimer;
+    private Vector3 initPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class EnemyController : MonoBehaviour
         playerTransform = player.transform;
         enemyRigidbody = this.GetComponent<Rigidbody>();
         shootingTimer = shootingTimeInterval;
+        initPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -51,5 +53,10 @@ public class EnemyController : MonoBehaviour
         }
 
         if (shootingTimer < 0) shootingTimer = shootingTimeInterval;
+    }
+
+    public void Reset()
+    {
+        transform.position = initPosition;
     }
 }

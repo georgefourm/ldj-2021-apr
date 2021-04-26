@@ -20,8 +20,10 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public ResourceManager resources;
-
+    
     GameObject goal;
+
+    GameObject[] enemies;
 
     public GameObjectPooler pooler;
 
@@ -58,6 +60,8 @@ public class GameManager : MonoBehaviour
         health = GetComponent<HealthManager>();
         ui.InitHealth(health.totalHealth);
 
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
         RestartLevel();
     }
 
@@ -67,7 +71,10 @@ public class GameManager : MonoBehaviour
         fuel.Reset();
         resources.Reset();
         health.Reset();
-
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<EnemyController>().Reset();
+        }
         ui.Reset();
         
         goal.SetActive(false);
