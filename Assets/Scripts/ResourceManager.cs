@@ -53,7 +53,7 @@ public class ResourceManager : MonoBehaviour
         GameManager.Instance.ui.AddResource();
         GameManager.Instance.pooler.DestroyPooled("resources", resource);
 
-        if (currResources == totalResources)
+        if (currResources >= totalResources)
         {
             GameManager.Instance.SetResourcesCompleted();
         }
@@ -69,7 +69,6 @@ public class ResourceManager : MonoBehaviour
                 var x = Random.Range(bb.x, bb.x + bb.width);
                 var z = Random.Range(bb.y, bb.y + bb.height);
                 GenerateResource(x, z);
-                totalResources++;
             }
         }
     }
