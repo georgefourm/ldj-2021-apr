@@ -26,10 +26,10 @@ public class LazerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.tag.Equals("Invisible"))
+        if (other.gameObject.tag.Equals("Player"))
         {
             GameManager.Instance.health.Damage(damage);
-            GameManager.Instance.pooler.DestroyPooled("projectiles", gameObject);
         }
+        GameManager.Instance.pooler.DestroyPooled("projectiles", gameObject);
     }
 }
