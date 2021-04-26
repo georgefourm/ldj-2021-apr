@@ -27,6 +27,8 @@ public class ResourceManager : MonoBehaviour
         {
             totalResources += (int) area.minResources;
         }
+
+        GameManager.Instance.ui.InitResources(totalResources);
     }
 
     public void Reset()
