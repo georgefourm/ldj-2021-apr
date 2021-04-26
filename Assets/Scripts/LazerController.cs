@@ -9,7 +9,7 @@ public class LazerController : MonoBehaviour
     
     float lifetime = 5f;
 
-    public int damage = 2;
+    public int damage = 10;
 
     public void Fire()
     {
